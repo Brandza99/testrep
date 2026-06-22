@@ -1,0 +1,17 @@
+name: Docker Build Images CICD REFRESH
+
+  on:
+    push:
+      branches:
+        - master
+
+  jobs:
+    docker-build:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout code
+          uses: action/checkout@v4
+
+        - name: Build docker image
+          run: docker build -t cicd-refresh .
